@@ -19,7 +19,7 @@ public class Trade {
     }
 
     public void viewTrade() {
-        System.out.println(String.format("tradeId=%d, buyId=%d, sellId=%d, price=%d, quantity=%d, timestamp=%l"));
+        System.out.printf("tradeId=%d, buyId=%d, sellId=%d, price=%d, quantity=%d, timestamp=%s%n", tradeId, buyOrderId, sellOrderId, price, quantity, timestamp);
     }
 
     public int getBuyOrderId() {

@@ -71,26 +71,31 @@ public class MatchEngineTest {
         orderBook.addOrder(sell4);
         assertEquals(orderBook.getAskBook().size(), 4);
         assertEquals(orderBook.getBidBook().size(), 4);
+//        orderBook.viewOrderBook();
 
         Order incomingBuy1 = new Order(9, BUY, 104, 100);
         engine.process(incomingBuy1);
         assertEquals(orderBook.getAskBook().get(104).get(0).getQuantity(), 40);
-
+//        orderBook.viewOrderBook();
+//
         Order incomingBuy2 = new Order(10, BUY, 104, 50);
         engine.process(incomingBuy2);
         assertEquals(orderBook.getBidBook().get(104).get(0).getPrice(), 104);
         assertEquals(orderBook.getBidBook().get(104).get(0).getQuantity(), 10);
-
+//        orderBook.viewOrderBook();
+//
         Order incomingBuy3 = new Order(11, BUY, 106, 230);
         engine.process(incomingBuy3);
         assertEquals(orderBook.getAskBook().size(), 1);
         assertEquals(orderBook.getAskBook().get(107).get(0).getQuantity(), 40);
         assertEquals(orderBook.getBidBook().get(106).get(0).getQuantity(), 10);
-
+//        orderBook.viewOrderBook();
+//
 //        orderBook.viewOrderBook();
         Order incomingSell1 = new Order(12, SELL, 101, 300);
         engine.process(incomingSell1);
         assertEquals(orderBook.getBidBook().size(), 2);
         assertEquals(orderBook.getBidBook().get(101).get(0).getQuantity(), 20);
+        orderBook.viewOrderBook();
     }
 }
