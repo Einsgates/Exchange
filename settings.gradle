@@ -1,2 +1,5 @@
 rootProject.name = 'Exchange'
 
+include('cli')
+include('api')
+include('engine')

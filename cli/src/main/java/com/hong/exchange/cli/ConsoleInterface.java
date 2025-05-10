@@ -11,8 +11,8 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.hong.exchange.order.Order.Side.*;
 import static com.hong.exchange.order.Order.Side;
+import static com.hong.exchange.order.Order.Side.*;
 
 public class ConsoleInterface {
 

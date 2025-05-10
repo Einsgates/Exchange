@@ -1,6 +1,7 @@
 package com.hong.exchange.book;
 
 import com.hong.exchange.order.Order;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,10 +23,10 @@ public class OrderBookTest {
     public void testAddOrder() {
         Order order = new Order(1, BUY, 100, 10);
         orderBook.addOrder(order);
-        assertNotNull(orderBook);
+        Assertions.assertNotNull(orderBook);
         Map<Integer, List<Order>> bidBook = orderBook.getBidBook();
-        assertNotNull(bidBook);
-        assertTrue(bidBook.containsKey(100));
+        Assertions.assertNotNull(bidBook);
+        Assertions.assertTrue(bidBook.containsKey(100));
         assertEquals(BUY, bidBook.get(100).get(0).getSide());
         assertEquals(1, bidBook.get(100).get(0).getOrderId());
         assertEquals(100, bidBook.get(100).get(0).getPrice());
@@ -39,11 +40,11 @@ public class OrderBookTest {
             Order order = new Order(i, SELL, 100 + i, 10+(i%3));
             orderBook.addOrder(order);
         }
-        assertNotNull(orderBook);
+        Assertions.assertNotNull(orderBook);
         Map<Integer, List<Order>> askBook = orderBook.getAskBook();
-        assertNotNull(askBook);
+        Assertions.assertNotNull(askBook);
         for (int i = 2; i < 10; i++) {
-            assertTrue(askBook.containsKey(100 + i));
+            Assertions.assertTrue(askBook.containsKey(100 + i));
         }
         orderBook.viewOrderBook();
     }
@@ -54,10 +55,10 @@ public class OrderBookTest {
             Order order = new Order(i, SELL, 100 + i, 10+(i%3));
             orderBook.addOrder(order);
         }
-        assertNotNull(orderBook.getOrderById(4));
+        Assertions.assertNotNull(orderBook.getOrderById(4));
         orderBook.viewOrderBook();
         orderBook.cancelOrder(orderBook.getOrderById(4));
         orderBook.viewOrderBook();
-        assertNull(orderBook.getOrderById(4));
+        Assertions.assertNull(orderBook.getOrderById(4));
     }
 }
