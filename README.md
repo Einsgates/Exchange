@@ -44,3 +44,5 @@ Instructions for the exchange:
 ------------------EXIT-----------------> quit
 > EXIT
 ```
+
+I will show Yifan how to use `Git`
